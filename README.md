@@ -4,7 +4,7 @@
 
 BNAI teaches humans and AI agents how to build project-bound engineering infrastructure in durable version-control branches. Preserve context across sessions, select only the capabilities needed, and verify work against exact revisions — without requiring a particular model, harness or execution provider.
 
-**Specification:** v0.0.0.3 candidate · [Version history](CHANGELOG.md) · [PolyForm Strict 1.0.0](LICENSE) · [Reuse terms](NOTICE.md)
+**Specification:** v0.0.0.3.1 candidate · [Version history](CHANGELOG.md) · [PolyForm Strict 1.0.0](LICENSE) · [Reuse terms](NOTICE.md)
 
 [Read the specification](docs/README.md) · [Review a project with BNAI](AGENTS.md) · [Explore source examples](examples/README.md)
 
@@ -38,7 +38,7 @@ Use Layer 1 alone, 1 + 3, 1 + 2 + 4, or any of the [16 possible compositions](do
 | Design an installation | [Architecture](docs/architecture.md) and [layer composition](docs/composition.md) |
 | Build or maintain a layer | [Implementation and lifecycle guides](docs/README.md) |
 | Review a project with an agent | [Agent instructions](AGENTS.md) and [review workflow](WORKFLOW.md) |
-| Check laws, evidence or examples | [Standard](STANDARD.md), [acceptance gates](GATE.md), [examples](examples/README.md) |
+| Check laws, evidence or examples | [Standard](STANDARD.md), [acceptance gates](GATE.md), [qualification journeys](docs/qualification-journeys.md), [examples](examples/README.md) |
 | Understand or propose changes | [Documentation strategy](docs/documentation-strategy.md), [contribution rules](CONTRIBUTING.md) |
 
 ## BNAI Mode

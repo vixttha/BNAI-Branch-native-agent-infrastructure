@@ -16,8 +16,16 @@ On “turn BNAI off”, “exit BNAI Mode”, or equivalent explicit intent, sto
 
 ## Maintainer boundary
 
-This repository is the reference, not a self-installing BNAI product. Use a scoped documentation branch, public standard GitHub-hosted CI, exact receipts, owner approval for integration and releases. No VIB installation, ledger, CLI/MCP service, mandatory plugin or dedicated adopter workspace is required here. Follow the [license notice](NOTICE.md).
+This repository is the reference, not a self-installing BNAI product. Use a scoped documentation branch, public standard GitHub-hosted CI, exact receipts, owner approval for integration and releases. Do not install BNAI into itself or require a CLI/MCP service or mandatory plugin. The owner has selected VIB for BNAI's development checkpoints when a compatible installation is qualified; it is a maintainer workflow choice, not a dependency of the reference or its readers. Follow the [license notice](NOTICE.md).
 
 ## Documentation strategy
 
 Preserve the owner-selected Set 1 for README.md and Sets 4 and 9 for supporting docs, as recorded in [documentation strategy](docs/documentation-strategy.md). Adapt techniques to reference scope; do not invent a runtime, install README HQ or silently change the selected sets. Record pending evidence honestly.
+
+## Maintainer version workflow — VIB
+
+For each future development checkpoint, inspect the dedicated `Version-Issues-Hub` branch at its exact revision before assignment. Verify the package source, target repository, baseline, current ledger/handoff and actual open GitHub issue. Follow the installed contract and Standard VIB, one active Worker in the Head → Worker → Validate → Internal Auditor → Head lane. Obtain owner-approved acceptance criteria before claim; retain actual fix, candidate, base and integration checkout, run/attempt/job/step evidence and decisions. No branch protection or paid runner is required. Do not merge the dedicated VIB branch into main, copy foreign adopter state, fabricate assignments or independently promote untested evidence. Use owner-approved integration and verify actual main/post-merge checks before closure; preserve historical records.
+
+Current adoption is **blocked**: the inspected VIB .42 and .43 installers require a three-component baseline and the checkpoint grammar accepts four components, whereas BNAI's owner-selected v0.0.0.3.1 has five. See [compatibility issue #5](https://github.com/vixttha/BNAI-Branch-native-agent-infrastructure/issues/5). Do not install with a false baseline, renumber the project, change upstream VIB, or claim a VIB-managed checkpoint. The previously approved qualification work is prepared as the directly owner-requested v0.0.0.3.1 candidate, not a VIB assignment. Before beginning another version under VIB, resolve the compatibility issue and qualify clean adoption, or obtain an explicit owner-approved alternative. No automatic parallel lane or retroactive ledger history.
+
+Use the [15 qualification journeys](docs/qualification-journeys.md) for applicable scope; separate reference, observed agent and adopter evidence. Preserve the locked documentation strategy and existing laws. Check the exact candidate before returning to Head; structural CI does not establish independent agent review or executed journey outcomes.

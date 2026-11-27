@@ -18,5 +18,8 @@
 ## Reference
 [All compositions](composition.md#all-layer-1-compositions) · [Pairwise interactions](composition.md#all-ten-pairwise-interaction-contracts) · [Illustrative interface](interface-example.md) · [Agent contract artifacts](agent-contract.md) · [Source example catalog](../examples/README.md) · [Primary sources](sources.md).
 
+## Qualification
+[15 reference qualification journeys](qualification-journeys.md) — evidence requirements, failure cases and execution boundaries.
+
 ## Maintain the specification
 [Locked documentation strategy](documentation-strategy.md) · [Contributions](../CONTRIBUTING.md) · [Version history](../CHANGELOG.md) · [Home](../README.md).
