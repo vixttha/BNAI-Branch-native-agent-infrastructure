@@ -1,9 +1,10 @@
 # Changelog
 
-## Unreleased — qualification journeys
-- Add fifteen reference qualification scenarios, explicit evidence tiers, negative cases and a structural catalog check. Keep version assignment and integration subject to owner approval.
+## v0.0.0.3.1 — qualification journeys and maintainer contract (candidate)
+- Add fifteen reference qualification scenarios, explicit evidence tiers, negative cases and a structural catalog check. Version selected by the owner; integration requires review of this exact candidate.
+- Update the maintainer agent contract for future issue-version management with VIB, subject to compatibility and reviewed adoption. Record the current version-grammar blocker; no VIB installation or assignment is claimed.
 
-## v0.0.0.3 — reference standard and operating contract (candidate)
+## v0.0.0.3 — reference standard and operating contract (merged)
 - Add BNAI's own read-only-by-default agent operating contract and five-step review loop, with explicit deactivation.
 - Document five layers, all sixteen Layer-1 compositions, all ten pairwise interfaces and a branch installation recipe.
 - Separate execution profiles from architecture; add no-runner options and privacy boundaries.

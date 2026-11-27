@@ -4,7 +4,7 @@
 
 BNAI teaches humans and AI agents how to build project-bound engineering infrastructure in durable version-control branches. Preserve context across sessions, select only the capabilities needed, and verify work against exact revisions — without requiring a particular model, harness or execution provider.
 
-**Specification:** v0.0.0.3 candidate · [Version history](CHANGELOG.md) · [PolyForm Strict 1.0.0](LICENSE) · [Reuse terms](NOTICE.md)
+**Specification:** v0.0.0.3.1 candidate · [Version history](CHANGELOG.md) · [PolyForm Strict 1.0.0](LICENSE) · [Reuse terms](NOTICE.md)
 
 [Read the specification](docs/README.md) · [Review a project with BNAI](AGENTS.md) · [Explore source examples](examples/README.md)
 

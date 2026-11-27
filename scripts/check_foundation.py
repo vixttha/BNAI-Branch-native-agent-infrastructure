@@ -32,9 +32,12 @@ def validate_journeys(doc):
 
 class FoundationTests(unittest.TestCase):
     def test_version(self):
-        self.assertEqual((ROOT / "VERSION").read_text().strip(), "v0.0.0.3")
-        for path in ("README.md", "CHANGELOG.md"):
-            self.assertIn("v0.0.0.3", (ROOT / path).read_text())
+        version = (ROOT / "VERSION").read_text().strip()
+        self.assertRegex(version, r"^v(?:0|[1-9][0-9]*)(?:\.(?:0|[1-9][0-9]*)){2,}$")
+        readme = (ROOT / "README.md").read_text()
+        self.assertEqual(re.findall(r"^\*\*Specification:\*\* (v[0-9.]+)\s", readme, re.M), [version])
+        changelog = (ROOT / "CHANGELOG.md").read_text()
+        self.assertEqual(re.findall(r"^## (v[0-9.]+)\s", changelog, re.M)[0], version)
     def test_catalog(self):
         data = json.loads((ROOT / "examples/catalog.json").read_text())
         self.assertEqual(data["schema_version"], 1)
@@ -116,6 +119,13 @@ class FoundationTests(unittest.TestCase):
             with self.subTest():
                 with self.assertRaises(ValueError):
                     validate_journeys(bad)
+    def test_maintainer_version_workflow(self):
+        contract = (ROOT / "AGENTS.md").read_text()
+        for required in ("Maintainer version workflow — VIB", "Current adoption is **blocked**", "not a VIB assignment", "one active Worker", "15 qualification journeys"):
+            self.assertIn(required, contract)
+        self.assertNotIn("Version-Issues-Hub", {p.name for p in ROOT.iterdir()})
+        self.assertFalse((ROOT / "ledger").exists())
+        self.assertFalse((ROOT / "vib-install.json").exists())
     def test_local_links(self):
         for path in ROOT.rglob("*.md"):
             for target in re.findall(r"\]\(([^)]+)\)", path.read_text()):
