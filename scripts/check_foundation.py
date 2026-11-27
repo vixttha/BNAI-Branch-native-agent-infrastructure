@@ -121,7 +121,7 @@ class FoundationTests(unittest.TestCase):
                     validate_journeys(bad)
     def test_maintainer_version_workflow(self):
         contract = (ROOT / "AGENTS.md").read_text()
-        for required in ("Maintainer version workflow — VIB", "Current adoption is **blocked**", "not a VIB assignment", "one active Worker", "15 qualification journeys"):
+        for required in ("Maintainer version workflow — VIB", "Verify the package source", "Do not merge the dedicated VIB branch into main", "one active Worker", "15 qualification journeys"):
             self.assertIn(required, contract)
         self.assertNotIn("Version-Issues-Hub", {p.name for p in ROOT.iterdir()})
         self.assertFalse((ROOT / "ledger").exists())
