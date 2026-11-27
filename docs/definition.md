@@ -4,6 +4,8 @@ A BNAI installation is a reusable engineering environment installed in a long-li
 
 A branch is durable by lifecycle policy, not immutable. Updates are allowed with provenance and conflict controls. GitHub is the first reference platform, not the definition of the category.
 
+The foundational agent operating contract is a separately identifiable set of responsibilities within the branch installation, not just a README or prompt. See [agent contract](agent-contract.md). The contract may be implemented in a small number of files or split by responsibility.
+
 ## Distinctions
 
 | Concept | Distinction |

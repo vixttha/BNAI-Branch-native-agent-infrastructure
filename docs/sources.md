@@ -8,6 +8,7 @@ Accessed 2026-11-27. External standards inform the architecture but do not endor
 - [CLI Guidelines](https://clig.dev/) — discoverability, output, errors and automation; BNAI extends these design principles for agents.
 - [GitHub runner selection](https://docs.github.com/en/actions/how-tos/write-workflows/choose-where-workflows-run/choose-the-runner-for-a-job) — standard public hosted runner availability.
 - [Actions billing](https://docs.github.com/en/billing/concepts/product-billing/github-actions) — private allowances, paid runner distinctions; recheck current billing before execution.
+- [GitHub Actions workflows](https://docs.github.com/en/actions/concepts/workflows-and-actions/workflows) — executable workflows differ from prose WORKFLOW.md.
 - [Actions secure use](https://docs.github.com/en/actions/reference/security/secure-use) — least privilege, workflow and untrusted-input risks.
 - [Existing example sources](../examples/README.md) — exact Git commit references.
 

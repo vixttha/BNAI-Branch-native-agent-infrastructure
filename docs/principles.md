@@ -11,7 +11,7 @@ Proposed category principles, informed by the six existing ecosystem laws:
 8. Safety: least privilege, untrusted input handling, bounded execution, no silent escalation or stale writes.
 
 ## Qualification
-Use explicit statuses: proposed, source-observed, installation-tested, execution-tested, cross-harness-tested. Each claim must name the target, source and state revision, operation, environment and evidence; a test does not qualify unrelated capabilities. A full installation must demonstrate discovery, identity/state recovery in a fresh session, bounded mechanical operation, authorization denial and verifiable receipt. Further profiles may test CLI, skills, plugins, MCP and private/local/cloud execution independently. No universal certification is offered in v0.0.0.1.
+Use explicit statuses: proposed, source-observed, installation-tested, execution-tested, cross-harness-tested. Each claim must name the target, source and state revision, operation, environment and evidence; a test does not qualify unrelated capabilities. A full installation must demonstrate discovery, identity/state recovery in a fresh session, bounded mechanical operation, authorization denial and verifiable receipt. Further profiles may test CLI, skills, plugins, MCP and private/local/cloud execution independently. No universal certification is offered. Qualify the branch substrate and agent operating contract independently of optional interfaces.
 
 The example catalog distinguishes observed branch patterns, component examples and an ecosystem index. None are declared fully qualified by this documentation audit.
 
