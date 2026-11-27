@@ -1,0 +1,9 @@
+{
+  "reference_sha": "1111111111111111111111111111111111111111",
+  "target_sha": "2222222222222222222222222222222222222222",
+  "operation": "inspect",
+  "status": "source-observed",
+  "findings": [
+    "Illustrative: dedicated branch entry instructions observed"
+  ]
+}
