@@ -17,3 +17,7 @@ On “turn BNAI off”, “exit BNAI Mode”, or equivalent explicit intent, sto
 ## Maintainer boundary
 
 This repository is the reference, not a self-installing BNAI product. Use a scoped documentation branch, public standard GitHub-hosted CI, exact receipts, owner approval for integration and releases. No VIB installation, ledger, CLI/MCP service, mandatory plugin or dedicated adopter workspace is required here. Follow the [license notice](NOTICE.md).
+
+## Documentation strategy
+
+Preserve the owner-selected Set 1 for README.md and Sets 4 and 9 for supporting docs, as recorded in [documentation strategy](docs/documentation-strategy.md). Adapt techniques to reference scope; do not invent a runtime, install README HQ or silently change the selected sets. Record pending evidence honestly.

@@ -44,3 +44,15 @@ Each selected pair uses these contracts where they interact; do not build unnece
 
 ## Choosing a configuration
 Start with the [Layer 1 guide](layers/01-persistent-branch.md). Add [Layer 2](layers/02-agent-contract.md) for repeatable identity and operating rules; [Layer 3](layers/03-skills-plugins.md) for portable specialist procedures; [Layer 4](layers/04-cli.md) for mechanical shell automation; [Layer 5](layers/05-mcp.md) for structured host connectivity. Select an [execution profile](execution.md) independently.
+
+## Select the smallest suitable combination
+
+| Reader task | Suggested composition | Tradeoff |
+|---|---|---|
+| Inspect stored project state | 1 | Repository access only; no execution claim |
+| Guide a specialist with portable knowledge | 1 + 3 | Requires a compatible skill host |
+| Repeat controlled mechanical operations | 1 + 2 + 4 | Requires a suitable CLI execution environment |
+| Expose bounded operations to a host | 1 + 5 | Requires compatible MCP transport and authorization |
+| Use all interfaces | 1 + 2 + 3 + 4 + 5 | More integration and qualification burden; not inherently better |
+
+Add only a layer that solves a documented need; qualify each selected interface separately. There is no BNAI installer or universal feature flag. See [illustrative interface output](interface-example.md), [lifecycle guide](lifecycle-guide.md) and [documentation index](README.md).

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Illustrative BNAI read-only receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "reference_sha",
+    "target_sha",
+    "operation",
+    "status",
+    "findings"
+  ],
+  "properties": {
+    "reference_sha": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "target_sha": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "operation": {
+      "const": "inspect"
+    },
+    "status": {
+      "enum": [
+        "source-observed",
+        "blocked"
+      ]
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  }
+}

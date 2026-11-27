@@ -7,3 +7,6 @@ Build a primary entry skill for discovery, bounded capability selection and refe
 With Layer 1 alone, the skill can use a repository connector. With Layer 2, follow contract and authority. With Layer 4, consume command schemas and JSON results. With Layer 5, discover supported tools. Do not require a CLI or MCP if absent.
 
 Qualify fresh session, wrong repo, wrong revision, unavailable capabilities, denial, invocation and recovery. Keep packaged skills within their own licensing and distribution permissions.
+
+## Related reference
+[Guide index](../README.md) · [Composition and interfaces](../composition.md) · [Lifecycle and recovery](../lifecycle-guide.md) · [Illustrative receipt](../interface-example.md). Apply only the selected layers and qualify the actual product, not this example.

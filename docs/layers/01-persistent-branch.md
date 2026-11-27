@@ -29,3 +29,6 @@ With Layer 2, load the operating contract from the pinned branch. With Layer 3, 
 
 ## Acceptance
 Verify no unrelated state leaked; source and target identities match; applicable tests prove the actual operations; owner authority is maintained; recovery can identify the last verified state. Record any missing capability as unqualified, not passed.
+
+## Related reference
+[Guide index](../README.md) · [Composition and interfaces](../composition.md) · [Lifecycle and recovery](../lifecycle-guide.md) · [Illustrative receipt](../interface-example.md). Apply only the selected layers and qualify the actual product, not this example.

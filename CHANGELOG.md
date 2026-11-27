@@ -5,6 +5,7 @@
 - Document five layers, all sixteen Layer-1 compositions, all ten pairwise interfaces and a branch installation recipe.
 - Separate execution profiles from architecture; add no-runner options and privacy boundaries.
 - Add exact VIB PolyForm Strict license, BNAI-specific notice, contribution and security guidance.
+- Lock the owner-selected README strategy (Set 1) and supporting documentation strategies (Sets 4 and 9), with a pinned technique catalog, reader routes, composition and lifecycle guides, and coverage checks.
 - Preserve observed example pins; extend structural checks without introducing a runtime.
 
 ## v0.0.0.2 — architecture revision (merged)

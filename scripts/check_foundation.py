@@ -49,10 +49,40 @@ class FoundationTests(unittest.TestCase):
         pairs = re.findall(r"^\| ([1-5]) ↔ ([1-5]) \|", doc, re.M)
         self.assertEqual(len(pairs), 10)
         self.assertEqual(set(pairs), {(str(a), str(b)) for a in range(1, 6) for b in range(a+1, 6)})
+    def test_documentation_strategy(self):
+        data = json.loads((ROOT / "docs/documentation-strategy.json").read_text())
+        self.assertEqual(data["source"]["commit"], "88feb6971d2f49c530535f09d0defb1e9e1808bf")
+        self.assertEqual([s["number"] for s in data["sets"]], [1, 4, 9])
+        for s in data["sets"]:
+            self.assertEqual(len(s["techniques"]), 20)
+            self.assertEqual(len({t["id"] for t in s["techniques"]}), 20)
+            for t in s["techniques"]:
+                self.assertTrue((ROOT / t["path"]).is_file(), t)
+                self.assertIn(t["disposition"], {"applied", "adapted", "pending"})
+                self.assertIn(t["id"], (ROOT / "docs/documentation-strategy.md").read_text())
+        for route in ("docs/README.md", "AGENTS.md", "docs/composition.md", "LICENSE", "NOTICE.md"):
+            self.assertIn(f"]({route})", (ROOT / "README.md").read_text())
+        self.assertIn("Turn BNAI off", (ROOT / "README.md").read_text())
+    def test_illustrative_receipt(self):
+        base = ROOT / "docs/examples"
+        schema = json.loads((base / "inspection-receipt.schema.json").read_text())
+        receipt = json.loads((base / "inspection-receipt.json").read_text())
+        self.assertEqual(set(receipt), set(schema["required"]))
+        for field in ("reference_sha", "target_sha"):
+            self.assertRegex(receipt[field], schema["properties"][field]["pattern"])
+        self.assertEqual(receipt["operation"], schema["properties"]["operation"]["const"])
+        self.assertIn(receipt["status"], schema["properties"]["status"]["enum"])
+        self.assertTrue(all(isinstance(x, str) and x for x in receipt["findings"]))
     def test_local_links(self):
         for path in ROOT.rglob("*.md"):
             for target in re.findall(r"\]\(([^)]+)\)", path.read_text()):
                 if "://" not in target and not target.startswith("#"):
-                    self.assertTrue((path.parent / target.split("#", 1)[0]).exists(), f"{path}: {target}")
+                    name, _, anchor = target.partition("#")
+                    dest = path.parent / name
+                    self.assertTrue(dest.exists(), f"{path}: {target}")
+                    if anchor and dest.suffix == ".md":
+                        headings = re.findall(r"^#{1,6} (.+)$", dest.read_text(), re.M)
+                        slugs = [re.sub(r"[^\w\- ]", "", h.lower()).replace(" ", "-") for h in headings]
+                        self.assertIn(anchor, slugs, f"{path}: {target}")
 if __name__ == "__main__":
     unittest.main(verbosity=2)

@@ -1,0 +1,449 @@
+{
+  "schema_version": 1,
+  "owner_selection": "locked; change only with owner approval",
+  "source": {
+    "repository": "vixttha/README-HQ",
+    "commit": "88feb6971d2f49c530535f09d0defb1e9e1808bf",
+    "index": "catalog/index.json"
+  },
+  "sets": [
+    {
+      "number": 1,
+      "name": "Intelligent Architectural Specification",
+      "techniques": [
+        {
+          "id": "project-purpose-statement",
+          "path": "README.md",
+          "application": "Purpose in opening paragraph",
+          "disposition": "applied",
+          "library_evidence": "observed"
+        },
+        {
+          "id": "value-proposition",
+          "path": "README.md",
+          "application": "Practical value of persistent state",
+          "disposition": "applied",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "scope-boundaries",
+          "path": "README.md",
+          "application": "Reference, not runtime or certification",
+          "disposition": "applied",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "capabilities-at-a-glance",
+          "path": "README.md",
+          "application": "Five layer table",
+          "disposition": "applied",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "architecture-or-flow-diagram",
+          "path": "README.md",
+          "application": "Optional interfaces connected to required foundation",
+          "disposition": "applied",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "role-based-entry-points",
+          "path": "README.md",
+          "application": "Start here by reader goal",
+          "disposition": "applied",
+          "library_evidence": "observed"
+        },
+        {
+          "id": "relative-navigation",
+          "path": "README.md",
+          "application": "Same-checkout links",
+          "disposition": "applied",
+          "library_evidence": "observed"
+        },
+        {
+          "id": "project-status-and-maturity",
+          "path": "README.md",
+          "application": "Candidate status and limitations",
+          "disposition": "applied",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "license-and-reuse-link",
+          "path": "README.md",
+          "application": "License and notice",
+          "disposition": "applied",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "citation-instructions",
+          "path": "README.md",
+          "application": "Title, version, full SHA, pinned URL; no personal attribution invented",
+          "disposition": "adapted",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "agent-instruction-pointer",
+          "path": "README.md",
+          "application": "Link AGENTS.md before activation",
+          "disposition": "applied",
+          "library_evidence": "observed"
+        },
+        {
+          "id": "expose-discovery-metadata-through-the-readme",
+          "path": "README.md",
+          "application": "Visible title, version, category and license; no special host metadata support claimed",
+          "disposition": "adapted",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "copyable-quickstart",
+          "path": "README.md",
+          "application": "Copyable natural-language activation, not shell installation",
+          "disposition": "adapted",
+          "library_evidence": "observed"
+        },
+        {
+          "id": "prerequisite-or-installation-check",
+          "path": "README.md",
+          "application": "Reference and target read access prerequisite",
+          "disposition": "adapted",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "expected-output-contract",
+          "path": "README.md",
+          "application": "Expected advisory report fields",
+          "disposition": "applied",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "first-success-milestone",
+          "path": "README.md",
+          "application": "Correct pinned target and reference, no writes",
+          "disposition": "applied",
+          "library_evidence": "observed"
+        },
+        {
+          "id": "task-local-help-link",
+          "path": "README.md",
+          "application": "Activation failure route to operating contract",
+          "disposition": "applied",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "explain-where-project-decisions-are-made",
+          "path": "README.md",
+          "application": "Owner authority and gates",
+          "disposition": "applied",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "snapshot-source-identity",
+          "path": "README.md",
+          "application": "Resolve full revision; no self-referential commit hash",
+          "disposition": "applied",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "declared-versus-observed-evidence",
+          "path": "README.md",
+          "application": "Separate structural CI, source observations and untested behavior",
+          "disposition": "applied",
+          "library_evidence": "verified"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "name": "Modular Knowledge Architecture",
+      "techniques": [
+        {
+          "id": "scope-boundaries",
+          "path": "docs/architecture.md",
+          "application": "Layer 1 required; other layers independent",
+          "disposition": "applied",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "capabilities-at-a-glance",
+          "path": "docs/architecture.md",
+          "application": "Responsibilities table",
+          "disposition": "applied",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "concise-comparison-table",
+          "path": "docs/composition.md",
+          "application": "16 compositions and selection examples",
+          "disposition": "applied",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "architecture-or-flow-diagram",
+          "path": "docs/architecture.md",
+          "application": "Overview graph with no mandatory optional chain",
+          "disposition": "applied",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "alternatives-and-tradeoffs",
+          "path": "docs/composition.md",
+          "application": "Choice table by task",
+          "disposition": "applied",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "show-how-to-enable-optional-capabilities",
+          "path": "docs/composition.md",
+          "application": "Choose interfaces; no installer or feature flag claimed",
+          "disposition": "adapted",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "show-how-another-workflow-consumes-an-output",
+          "path": "docs/interface-example.md",
+          "application": "Illustrative output to next operation",
+          "disposition": "adapted",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "link-the-machine-readable-interface-contract",
+          "path": "docs/interface-example.md",
+          "application": "Illustrative local schema; not actual runtime API",
+          "disposition": "adapted",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "consistent-terms",
+          "path": "docs/architecture.md",
+          "application": "Canonical layer names",
+          "disposition": "applied",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "section-deep-links",
+          "path": "docs/README.md",
+          "application": "Direct heading links",
+          "disposition": "applied",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "clear-heading-hierarchy",
+          "path": "docs/README.md",
+          "application": "Guide index hierarchy",
+          "disposition": "applied",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "progressive-disclosure",
+          "path": "README.md",
+          "application": "Detail in linked docs",
+          "disposition": "applied",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "descriptive-link-labels",
+          "path": "docs/README.md",
+          "application": "Reader-task labels",
+          "disposition": "applied",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "relative-navigation",
+          "path": "docs/README.md",
+          "application": "Same-checkout routes",
+          "disposition": "applied",
+          "library_evidence": "observed"
+        },
+        {
+          "id": "separate-guide-types",
+          "path": "docs/README.md",
+          "application": "Explanation, how-to, reference",
+          "disposition": "applied",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "human-guide-for-a-structured-inventory",
+          "path": "docs/interface-example.md",
+          "application": "Explain illustrative schema and example catalog",
+          "disposition": "applied",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "contribution-route",
+          "path": "docs/README.md",
+          "application": "Contribution link",
+          "disposition": "applied",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "recognize-contribution-types-beyond-code",
+          "path": "CONTRIBUTING.md",
+          "application": "Documentation, design, research, verification; no invented contributors",
+          "disposition": "applied",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "lightweight-link-verification",
+          "path": "scripts/check_foundation.py",
+          "application": "Check relative files and heading anchors",
+          "disposition": "applied",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "verify-which-readme-appears-on-the-repository-homepage",
+          "path": "docs/documentation-strategy.md",
+          "application": "Verify root README location; rendered main homepage after merge",
+          "disposition": "pending",
+          "library_evidence": "unverified"
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "name": "Composable Persistent Systems",
+      "techniques": [
+        {
+          "id": "changelog-and-version-navigation",
+          "path": "docs/lifecycle-guide.md",
+          "application": "Version and history links",
+          "disposition": "applied",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "snapshot-source-identity",
+          "path": "docs/lifecycle-guide.md",
+          "application": "Source and state pinning",
+          "disposition": "applied",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "distinguish-source-from-the-shipped-product",
+          "path": "docs/lifecycle-guide.md",
+          "application": "Reference vs reusable package vs adopter state",
+          "disposition": "applied",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "send-readers-to-docs-for-their-installed-version",
+          "path": "docs/lifecycle-guide.md",
+          "application": "Pin docs to corresponding source revision",
+          "disposition": "applied",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "give-readers-an-upgrade-preflight",
+          "path": "docs/lifecycle-guide.md",
+          "application": "Preflight checks",
+          "disposition": "applied",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "explain-what-happens-when-a-step-is-repeated",
+          "path": "docs/lifecycle-guide.md",
+          "application": "Idempotency and ambiguous write recovery",
+          "disposition": "applied",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "state-which-saved-data-a-release-can-open",
+          "path": "docs/lifecycle-guide.md",
+          "application": "Require adopter compatibility statement; no universal matrix",
+          "disposition": "adapted",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "show-a-restore-check-against-a-separate-destination",
+          "path": "docs/lifecycle-guide.md",
+          "application": "Illustrative isolated restore protocol",
+          "disposition": "adapted",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "explain-what-uninstall-removes-and-retains",
+          "path": "docs/lifecycle-guide.md",
+          "application": "Retirement retention rules",
+          "disposition": "applied",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "turn-an-archived-readme-into-a-handoff",
+          "path": "docs/lifecycle-guide.md",
+          "application": "Conditional archive handoff example; BNAI not archived",
+          "disposition": "adapted",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "scope-boundaries",
+          "path": "docs/composition.md",
+          "application": "Optional layer boundaries",
+          "disposition": "applied",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "capabilities-at-a-glance",
+          "path": "docs/architecture.md",
+          "application": "Five layers",
+          "disposition": "applied",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "concise-comparison-table",
+          "path": "docs/composition.md",
+          "application": "All 16 combinations",
+          "disposition": "applied",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "architecture-or-flow-diagram",
+          "path": "docs/architecture.md",
+          "application": "Foundation and optional enhancements",
+          "disposition": "applied",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "alternatives-and-tradeoffs",
+          "path": "docs/composition.md",
+          "application": "Minimal composition choices",
+          "disposition": "applied",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "show-how-to-enable-optional-capabilities",
+          "path": "docs/composition.md",
+          "application": "Independent selection, no installation command",
+          "disposition": "adapted",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "show-how-another-workflow-consumes-an-output",
+          "path": "docs/interface-example.md",
+          "application": "Illustrative receipt consumption",
+          "disposition": "adapted",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "link-the-machine-readable-interface-contract",
+          "path": "docs/interface-example.md",
+          "application": "Example schema only",
+          "disposition": "adapted",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "consistent-terms",
+          "path": "docs/architecture.md",
+          "application": "Canonical terminology",
+          "disposition": "applied",
+          "library_evidence": "unverified"
+        },
+        {
+          "id": "section-deep-links",
+          "path": "docs/README.md",
+          "application": "Direct routes to lifecycle and composition",
+          "disposition": "applied",
+          "library_evidence": "unverified"
+        }
+      ]
+    }
+  ]
+}

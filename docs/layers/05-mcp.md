@@ -7,3 +7,6 @@ Build a small versioned server interface with typed tool input/output, explicit 
 With Layer 1, retrieve installation identity and state or execute scoped operations. With Layer 2, expose current contract and resources without allowing resource text to change authority. With Layer 3, skills select advertised capabilities. With Layer 4, share the core or safely adapt CLI. MCP alone with Layer 1 is valid; a CLI or dedicated skill is not a requirement.
 
 Qualify handshake/discovery, version compatibility, authentication, wrong-target rejection, schema errors, denied writes, cancellation, stale state and receipt retrieval. A local stdio test does not qualify remote browser access. Host-specific tool availability and actual invocation need independent evidence.
+
+## Related reference
+[Guide index](../README.md) · [Composition and interfaces](../composition.md) · [Lifecycle and recovery](../lifecycle-guide.md) · [Illustrative receipt](../interface-example.md). Apply only the selected layers and qualify the actual product, not this example.

@@ -7,3 +7,6 @@ Build by defining discoverable entry instructions, orientation, laws, procedures
 With Layer 1, recover identity and state directly from the branch. With Layer 3, skills defer to applicable contract. With Layer 4, map permitted commands and their evidence requirements. With Layer 5, retrieve resources or tools with explicit permission. Use only selected interfaces; the contract can work through repository reads alone.
 
 Qualify fresh-session recovery, correct target, denied scope, stale context, interrupted work and explicit role exit. The [BNAI reference entry point](../../AGENTS.md) is an instructional example, not a target installation.
+
+## Related reference
+[Guide index](../README.md) · [Composition and interfaces](../composition.md) · [Lifecycle and recovery](../lifecycle-guide.md) · [Illustrative receipt](../interface-example.md). Apply only the selected layers and qualify the actual product, not this example.
