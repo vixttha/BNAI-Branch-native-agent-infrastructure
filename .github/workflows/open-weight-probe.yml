@@ -1,0 +1,82 @@
+name: Issue 6 isolated open-weight feasibility probe
+on:
+  push:
+    branches: ['qualification/issue-6-open-weight-probe']
+    paths: ['.github/workflows/open-weight-probe.yml']
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Verify environment
+        run: |
+          set -euo pipefail
+          echo "Probe only; not B01-B10 and not ChatGPT.com qualification"
+          echo "event revision: $GITHUB_SHA"
+          nproc
+          free -h
+          df -h "$RUNNER_TEMP"
+      - name: Install temporary CPU engine, model and harness
+        run: |
+          set -euo pipefail
+          cd "$RUNNER_TEMP"
+          curl -fsSL --retry 2 --max-time 180 -o llama.zip https://github.com/ggml-org/llama.cpp/releases/download/b6500/llama-b6500-bin-ubuntu-x64.zip
+          echo '716803084e565fe779bc2d01ea576c418be141f8fabac97509bc6d7c3cd786b2  llama.zip' | sha256sum -c -
+          unzip -q llama.zip -d llama
+          curl -fsSL --retry 2 --max-time 360 -o model.gguf https://huggingface.co/ggml-org/Qwen3-1.7B-GGUF/resolve/daeb8e2d528a760970442092f6bf1e55c3b659eb/Qwen3-1.7B-Q4_K_M.gguf
+          echo 'd2387ca2dbfee2ffabce7120d3770dadca0b293052bc2f0e138fdc940d9bc7b5  model.gguf' | sha256sum -c -
+          python3 -m venv probe-venv
+          probe-venv/bin/pip install --disable-pip-version-check 'smolagents[openai]==1.22.0'
+          probe-venv/bin/pip freeze
+      - name: Exercise existing tool-calling harness in two fresh processes
+        run: |
+          set -euo pipefail
+          cd "$RUNNER_TEMP"
+          server="$(find llama -type f -name llama-server -print -quit)"
+          test -n "$server"
+          export LD_LIBRARY_PATH="$(dirname "$server"):${LD_LIBRARY_PATH:-}"
+          "$server" --version
+          "$server" -m model.gguf --host 127.0.0.1 --port 18080 -t 4 -c 4096 -ngl 0 --jinja > server.log 2>&1 &
+          pid=$!
+          trap 'kill "$pid" 2>/dev/null || true' EXIT
+          for i in $(seq 1 90); do
+            if curl -fsS http://127.0.0.1:18080/health >/dev/null 2>&1; then break; fi
+            kill -0 "$pid" || { echo "server failed to start"; exit 1; }
+            sleep 2
+          done
+          curl -fsS http://127.0.0.1:18080/health
+          cat > probe.py <<'PY'
+          import json, os, secrets, time
+          from smolagents import OpenAIServerModel, ToolCallingAgent, tool, LogLevel
+
+          marker = "fixture-" + secrets.token_hex(6)
+          events = []
+          @tool
+          def read_marker() -> str:
+              """Read the marker from the authorized synthetic fixture."""
+              events.append({"tool": "read_marker", "output": marker})
+              return marker
+
+          model = OpenAIServerModel(model_id="local", api_base="http://127.0.0.1:18080/v1",
+                                    api_key="local-only", temperature=0, max_tokens=384,
+                                    client_kwargs={"timeout": 120, "max_retries": 0})
+          agent = ToolCallingAgent(tools=[read_marker], model=model, add_base_tools=False,
+                                   max_steps=4, verbosity_level=LogLevel.ERROR)
+          prompt = "Use the read_marker tool to read the synthetic fixture. Return its exact marker only. /no_think"
+          start = time.monotonic()
+          answer = str(agent.run(prompt)).strip()
+          passed = bool(events) and answer == marker
+          print(json.dumps({"session": os.getpid(), "prompt": prompt, "expected": marker,
+                            "answer": answer, "tool_events": events, "pass": passed,
+                            "elapsed_seconds": round(time.monotonic()-start, 2)}), flush=True)
+          if not passed:
+              raise SystemExit(1)
+          PY
+          status=0
+          for session in 1 2; do
+            echo "Fresh harness process $session"
+            env -u GH_TOKEN -u GITHUB_TOKEN -u HF_TOKEN -u OPENAI_API_KEY probe-venv/bin/python probe.py || status=1
+          done
+          exit "$status"
