@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "foundation_version": "v0.0.0.1",
+  "observed_date": "2026-11-27",
+  "qualification": "source-observed only; no runtime certification",
+  "examples": [
+    {
+      "id": "vib",
+      "repository": "vixttha/Version-Issues-Hub",
+      "ref": "Version-Issues-Hub",
+      "sha": "77b8d09d2471b20fe517bea35c6efc0bd047ddeb",
+      "path": "AGENTS.md",
+      "url": "https://github.com/vixttha/Version-Issues-Hub/blob/77b8d09d2471b20fe517bea35c6efc0bd047ddeb/AGENTS.md",
+      "classification": "observed-branch-pattern",
+      "observation": "Dedicated identity, branch resolution, ledger and handoff instructions; not a release or runtime qualification."
+    },
+    {
+      "id": "readme-hq",
+      "repository": "vixttha/README-HQ",
+      "ref": "readme-hq",
+      "sha": "b1bbc9a72a5193afcaeaf823f097753070bfa43f",
+      "path": "AGENTS.md",
+      "url": "https://github.com/vixttha/README-HQ/blob/b1bbc9a72a5193afcaeaf823f097753070bfa43f/AGENTS.md",
+      "classification": "observed-branch-pattern",
+      "observation": "Dedicated durable workspace and revision-aware documentation workflows."
+    },
+    {
+      "id": "veraphify",
+      "repository": "vixttha/Veraphify",
+      "ref": "main",
+      "sha": "add4a029312c958a5e126990fc49e802c0112c27",
+      "path": "ENGINEERING-LAWS.md",
+      "url": "https://github.com/vixttha/Veraphify/blob/add4a029312c958a5e126990fc49e802c0112c27/ENGINEERING-LAWS.md",
+      "classification": "component-example",
+      "observation": "Shared architectural laws; adopter installation not independently qualified here."
+    },
+    {
+      "id": "lydite",
+      "repository": "vixttha/Lydite-Test-Vault-Template",
+      "ref": "main",
+      "sha": "eae4c9d9d56ed132b400d7c0f56a9babfe5cba07",
+      "path": "README.md",
+      "url": "https://github.com/vixttha/Lydite-Test-Vault-Template/blob/eae4c9d9d56ed132b400d7c0f56a9babfe5cba07/README.md",
+      "classification": "component-example",
+      "observation": "Portable test vault and mechanical evidence; branch installation not proven by this source."
+    },
+    {
+      "id": "brand-identity",
+      "repository": "vixttha/Brand-Identity-Template",
+      "ref": "main",
+      "sha": "74a4666404fb4aa427881d0907cacbc8c65e2cfc",
+      "path": "README.md",
+      "url": "https://github.com/vixttha/Brand-Identity-Template/blob/74a4666404fb4aa427881d0907cacbc8c65e2cfc/README.md",
+      "classification": "component-example",
+      "observation": "Copy-in brand kit and agent entry instructions; not proof of a dedicated branch."
+    },
+    {
+      "id": "provenistem",
+      "repository": "vixttha/Provenistem",
+      "ref": "main",
+      "sha": "f676059bf15e466d18a0d49c317920c8c1160418",
+      "path": "README.md",
+      "url": "https://github.com/vixttha/Provenistem/blob/f676059bf15e466d18a0d49c317920c8c1160418/README.md",
+      "classification": "component-example",
+      "observation": "Portable catalog with adopter-owned state and evidence; dedicated adopter runtime not tested."
+    },
+    {
+      "id": "bart",
+      "repository": "vixttha/Blender-Agent-Refinement-Toolkit",
+      "ref": "main",
+      "sha": "e0e887a5e991a7a6ed7597e4a36dd47a49cd8ccb",
+      "path": "src/blender_agent/mcp_server.py",
+      "url": "https://github.com/vixttha/Blender-Agent-Refinement-Toolkit/blob/e0e887a5e991a7a6ed7597e4a36dd47a49cd8ccb/src/blender_agent/mcp_server.py",
+      "classification": "component-example",
+      "observation": "Optional stdio MCP uses shared mechanical core; remote transport and branch synchronization not qualified."
+    },
+    {
+      "id": "converium",
+      "repository": "vixttha/Converium-HQ",
+      "ref": "main",
+      "sha": "248189c7f1a1f0523753d7b0de93846a8b789d0d",
+      "path": "products/registry.json",
+      "url": "https://github.com/vixttha/Converium-HQ/blob/248189c7f1a1f0523753d7b0de93846a8b789d0d/products/registry.json",
+      "classification": "ecosystem-index",
+      "observation": "Read-only product index, not an operational BNAI product."
+    }
+  ]
+}
