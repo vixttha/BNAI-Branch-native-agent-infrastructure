@@ -1,6 +1,10 @@
 # Changelog
 
-## v0.0.0.3.1 — qualification journeys and maintainer contract (candidate)
+## v0.0.0.3.2 — agent behavioral qualification (candidate; blocked)
+- Add the approved issue #6 controlled trial protocol, synthetic scenario data, reference observations and honest per-case results. Required fresh-agent trials remain blocked; no behavioral qualification or integration claim.
+- Keep VIB adoption separately blocked and record the owner-selected cooperative issue #6 lane.
+
+## v0.0.0.3.1 — qualification journeys and maintainer contract (merged)
 - Add fifteen reference qualification scenarios, explicit evidence tiers, negative cases and a structural catalog check. Version selected by the owner; integration requires review of this exact candidate.
 - Update the maintainer agent contract for future issue-version management with VIB, subject to compatibility and reviewed adoption. Record the current version-grammar blocker; no VIB installation or assignment is claimed.
 

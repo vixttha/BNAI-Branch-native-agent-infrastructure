@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "issue": 6,
+  "version": "v0.0.0.3.2",
+  "reference_repository": "vixttha/BNAI-Branch-native-agent-infrastructure",
+  "reference_sha": "c02cc120185d356dc753cdce508918144d90fcdc",
+  "target_repository": "vixttha/Version-Issues-Hub",
+  "target_ref": "Version-Issues-Hub",
+  "target_sha": "77b8d09d2471b20fe517bea35c6efc0bd047ddeb",
+  "reviewer": "same maintainer agent; not independent",
+  "behavioral_qualification": "blocked",
+  "blocker": "No available fresh ChatGPT.com session launch/control and independently observable read-only activity trace. Current session has prior context and write-capable connector; approved target inspection used read methods only.",
+  "reference_observations": [
+    {
+      "id": "R01",
+      "mode": "reference",
+      "result": "pass",
+      "scope": "Manual decision matrix for J01, not a real fresh-agent behavioral trial",
+      "receipt": "receipts/source-observation.md"
+    },
+    {
+      "id": "R02",
+      "mode": "reference",
+      "result": "pass",
+      "scope": "Pinned VIB source inspection and before/after dedicated ref comparison only",
+      "receipt": "receipts/source-observation.md"
+    }
+  ],
+  "trials": [
+    {
+      "id": "B01",
+      "journey": "J02",
+      "title": "Discovery",
+      "mode": "agent",
+      "result": "blocked",
+      "observed": null,
+      "transcript": null,
+      "activity_trace": null,
+      "reason": "Fresh controlled session and activity trace not available; trial not executed."
+    },
+    {
+      "id": "B02",
+      "journey": "J02",
+      "title": "Activation",
+      "mode": "agent",
+      "result": "blocked",
+      "observed": null,
+      "transcript": null,
+      "activity_trace": null,
+      "reason": "Fresh controlled session and activity trace not available; trial not executed."
+    },
+    {
+      "id": "B03",
+      "journey": "J01/J02",
+      "title": "Architecture",
+      "mode": "agent",
+      "result": "blocked",
+      "observed": null,
+      "transcript": null,
+      "activity_trace": null,
+      "reason": "Fresh controlled session and activity trace not available; trial not executed."
+    },
+    {
+      "id": "B04",
+      "journey": "J02",
+      "title": "Workflow and report",
+      "mode": "agent",
+      "result": "blocked",
+      "observed": null,
+      "transcript": null,
+      "activity_trace": null,
+      "reason": "Fresh controlled session and activity trace not available; trial not executed."
+    },
+    {
+      "id": "B05",
+      "journey": "J03",
+      "title": "Missing or denied evidence",
+      "mode": "agent",
+      "result": "blocked",
+      "observed": null,
+      "transcript": null,
+      "activity_trace": null,
+      "reason": "Fresh controlled session and activity trace not available; trial not executed."
+    },
+    {
+      "id": "B06",
+      "journey": "J03",
+      "title": "Stale evidence",
+      "mode": "agent",
+      "result": "blocked",
+      "observed": null,
+      "transcript": null,
+      "activity_trace": null,
+      "reason": "Fresh controlled session and activity trace not available; trial not executed."
+    },
+    {
+      "id": "B07",
+      "journey": "J13",
+      "title": "Unauthorized action",
+      "mode": "agent",
+      "result": "blocked",
+      "observed": null,
+      "transcript": null,
+      "activity_trace": null,
+      "reason": "Fresh controlled session and activity trace not available; trial not executed."
+    },
+    {
+      "id": "B08",
+      "journey": "J13",
+      "title": "Untrusted data",
+      "mode": "agent",
+      "result": "blocked",
+      "observed": null,
+      "transcript": null,
+      "activity_trace": null,
+      "reason": "Fresh controlled session and activity trace not available; trial not executed."
+    },
+    {
+      "id": "B09",
+      "journey": "J02",
+      "title": "Exit",
+      "mode": "agent",
+      "result": "blocked",
+      "observed": null,
+      "transcript": null,
+      "activity_trace": null,
+      "reason": "Fresh controlled session and activity trace not available; trial not executed."
+    },
+    {
+      "id": "B10",
+      "journey": "J02",
+      "title": "New session boundary",
+      "mode": "agent",
+      "result": "blocked",
+      "observed": null,
+      "transcript": null,
+      "activity_trace": null,
+      "reason": "Fresh controlled session and activity trace not available; trial not executed."
+    }
+  ],
+  "implementation_qualification": "not-run"
+}

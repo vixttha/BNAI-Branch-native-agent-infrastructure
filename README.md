@@ -4,7 +4,7 @@
 
 BNAI teaches humans and AI agents how to build project-bound engineering infrastructure in durable version-control branches. Preserve context across sessions, select only the capabilities needed, and verify work against exact revisions — without requiring a particular model, harness or execution provider.
 
-**Specification:** v0.0.0.3.1 candidate · [Version history](CHANGELOG.md) · [PolyForm Strict 1.0.0](LICENSE) · [Reuse terms](NOTICE.md)
+**Specification:** v0.0.0.3.2 candidate · [Version history](CHANGELOG.md) · [PolyForm Strict 1.0.0](LICENSE) · [Reuse terms](NOTICE.md)
 
 [Read the specification](docs/README.md) · [Review a project with BNAI](AGENTS.md) · [Explore source examples](examples/README.md)
 
@@ -68,7 +68,7 @@ BNAI is a reference specification, not an adopter installation, agent harness, r
 | [Source observations](examples/README.md) | Exact historical source revisions; not runtime qualification |
 | [Structural checks](scripts/check_foundation.py) | Intended documentation checks; consult actual runs |
 | [GitHub Actions runs](https://github.com/vixttha/BNAI-Branch-native-agent-infrastructure/actions) | Check exact candidate or main revision and outcome |
-| Agent behavior / interoperability | Not qualified by documentation CI |
+| [Agent behavioral qualification](docs/qualification/v0.0.0.3.2/README.md) | Reference observation retained; required fresh-session trials blocked; no interoperability claim |
 
 This is an evolving candidate, not a formal released standard. [Primary sources](docs/sources.md) · [Security](SECURITY.md) · [Contribute](CONTRIBUTING.md).
 

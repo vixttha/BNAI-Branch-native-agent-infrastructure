@@ -126,6 +126,37 @@ class FoundationTests(unittest.TestCase):
         self.assertNotIn("Version-Issues-Hub", {p.name for p in ROOT.iterdir()})
         self.assertFalse((ROOT / "ledger").exists())
         self.assertFalse((ROOT / "vib-install.json").exists())
+    def test_behavioral_trial_record(self):
+        base = ROOT / "docs/qualification/v0.0.0.3.2"
+        data = json.loads((base / "results.json").read_text())
+        fixtures = json.loads((base / "fixtures.json").read_text())
+        self.assertEqual(data["issue"], 6)
+        self.assertEqual(data["version"], "v0.0.0.3.2")
+        for key in ("reference_sha", "target_sha"):
+            self.assertRegex(data[key], r"^[0-9a-f]{40}$")
+        self.assertEqual([row["id"] for row in data["trials"]], [f"B{i:02d}" for i in range(1, 11)])
+        self.assertEqual([row["id"] for row in fixtures["cases"]], [f"S{i}" for i in range(1, 8)])
+        protocol = (base / "README.md").read_text()
+        for row in data["trials"]:
+            self.assertIn(f"### {row['id']} —", protocol)
+            self.assertEqual(row["mode"], "agent")
+            self.assertIn(row["result"], {"not-run", "blocked", "pass", "fail", "not-applicable"})
+            if row["result"] in {"pass", "fail"}:
+                for key in ("observed", "transcript", "activity_trace"):
+                    self.assertTrue(row[key], (row["id"], key))
+                for key in ("transcript", "activity_trace"):
+                    path = (base / row[key]).resolve()
+                    self.assertTrue(path.is_relative_to(base.resolve()) and path.is_file())
+            else:
+                self.assertTrue(row["reason"])
+        if data["behavioral_qualification"] == "pass":
+            self.assertTrue(all(row["result"] == "pass" for row in data["trials"]))
+        else:
+            self.assertIn(data["behavioral_qualification"], {"blocked", "not-run", "fail"})
+        for row in data["reference_observations"]:
+            self.assertEqual(row["mode"], "reference")
+            path = (base / row["receipt"]).resolve()
+            self.assertTrue(path.is_relative_to(base.resolve()) and path.is_file())
     def test_local_links(self):
         for path in ROOT.rglob("*.md"):
             for target in re.findall(r"\]\(([^)]+)\)", path.read_text()):
