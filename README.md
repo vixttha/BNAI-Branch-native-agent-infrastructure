@@ -38,7 +38,7 @@ Use Layer 1 alone, 1 + 3, 1 + 2 + 4, or any of the [16 possible compositions](do
 | Design an installation | [Architecture](docs/architecture.md) and [layer composition](docs/composition.md) |
 | Build or maintain a layer | [Implementation and lifecycle guides](docs/README.md) |
 | Review a project with an agent | [Agent instructions](AGENTS.md) and [review workflow](WORKFLOW.md) |
-| Check laws, evidence or examples | [Standard](STANDARD.md), [acceptance gates](GATE.md), [examples](examples/README.md) |
+| Check laws, evidence or examples | [Standard](STANDARD.md), [acceptance gates](GATE.md), [qualification journeys](docs/qualification-journeys.md), [examples](examples/README.md) |
 | Understand or propose changes | [Documentation strategy](docs/documentation-strategy.md), [contribution rules](CONTRIBUTING.md) |
 
 ## BNAI Mode

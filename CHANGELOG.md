@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased — qualification journeys
+- Add fifteen reference qualification scenarios, explicit evidence tiers, negative cases and a structural catalog check. Keep version assignment and integration subject to owner approval.
+
 ## v0.0.0.3 — reference standard and operating contract (candidate)
 - Add BNAI's own read-only-by-default agent operating contract and five-step review loop, with explicit deactivation.
 - Document five layers, all sixteen Layer-1 compositions, all ten pairwise interfaces and a branch installation recipe.

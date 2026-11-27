@@ -5,6 +5,31 @@ import re
 import unittest
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
+def validate_journeys(doc):
+    """Check catalog shape, never claim behavioral execution."""
+    headings = re.findall(r"^### (J\d{2}) — (.+)$", doc, re.M)
+    expected = [f"J{i:02d}" for i in range(1, 16)]
+    if [j for j, _ in headings] != expected or len({t for _, t in headings}) != 15:
+        raise ValueError("expected ordered, unique J01–J15")
+    blocks = re.split(r"^### J\d{2} — .+$", doc, flags=re.M)[1:]
+    modes = {"reference", "agent", "adopter"}
+    covered = set()
+    for block in blocks:
+        block = block.split("\n## Completion boundary", 1)[0]
+        for label in ("Modes", "Fixture", "Procedure", "Assertions", "Negative cases", "Evidence", "Sources"):
+            if len(re.findall(r"^\*\*" + label + r":\*\* \S.+$", block, re.M)) != 1:
+                raise ValueError("missing or duplicate field: " + label)
+        selected = re.search(r"^\*\*Modes:\*\* (.+)$", block, re.M).group(1).split(", ")
+        if not set(selected) <= modes or len(selected) != len(set(selected)):
+            raise ValueError("invalid modes")
+        covered.update(selected)
+        sources = re.search(r"^\*\*Sources:\*\* (.+)$", block, re.M).group(1)
+        links = re.findall(r"\]\(([^)]+)\)", sources)
+        if not links or any("://" in p or p.startswith("/") or not (ROOT / "docs" / p).is_file() or not (ROOT / "docs" / p).resolve().is_relative_to(ROOT) for p in links):
+            raise ValueError("invalid local source")
+    if covered != modes:
+        raise ValueError("missing evidence mode")
+
 class FoundationTests(unittest.TestCase):
     def test_version(self):
         self.assertEqual((ROOT / "VERSION").read_text().strip(), "v0.0.0.3")
@@ -73,6 +98,24 @@ class FoundationTests(unittest.TestCase):
         self.assertEqual(receipt["operation"], schema["properties"]["operation"]["const"])
         self.assertIn(receipt["status"], schema["properties"]["status"]["enum"])
         self.assertTrue(all(isinstance(x, str) and x for x in receipt["findings"]))
+    def test_qualification_journeys(self):
+        doc = (ROOT / "docs/qualification-journeys.md").read_text()
+        validate_journeys(doc)
+        self.assertIn("Start all cases as not-run", doc)
+        for path, link in (("README.md", "docs/qualification-journeys.md"), ("GATE.md", "docs/qualification-journeys.md"), ("docs/README.md", "qualification-journeys.md")):
+            self.assertIn(f"]({link})", (ROOT / path).read_text())
+    def test_qualification_journeys_reject_invalid_catalog(self):
+        doc = (ROOT / "docs/qualification-journeys.md").read_text()
+        for bad in (
+            doc.replace("### J15 —", "### J14 —", 1),
+            doc.replace("### J01 —", "### J16 —", 1),
+            doc.replace("**Negative cases:**", "**Missing cases:**", 1),
+            doc.replace("**Modes:** reference", "**Modes:** universal", 1),
+            doc.replace("](definition.md)", "](missing-source.md)", 1),
+        ):
+            with self.subTest():
+                with self.assertRaises(ValueError):
+                    validate_journeys(bad)
     def test_local_links(self):
         for path in ROOT.rglob("*.md"):
             for target in re.findall(r"\]\(([^)]+)\)", path.read_text()):
