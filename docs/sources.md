@@ -13,3 +13,9 @@ Accessed 2026-11-27. External standards inform the architecture but do not endor
 - [Existing example sources](../examples/README.md) — exact Git commit references.
 
 No exhaustive literature review, legal name clearance, or trademark search is claimed.
+
+## Execution and licensing additions
+- [GitHub Codespaces included usage](https://docs.github.com/en/codespaces/troubleshooting/troubleshooting-included-usage) — bounded browser-accessible compute, separate from Actions.
+- [github.dev editor](https://docs.github.com/en/codespaces/the-githubdev-web-based-editor) — browser editing without build compute.
+- [GitHub REST contents](https://docs.github.com/en/rest/repos/contents) — authorized repository read/write without shell or Actions.
+- [PolyForm Strict](https://polyformproject.org/licenses/strict/1.0.0) and [VIB notice](https://github.com/vixttha/Version-Issues-Hub/blob/77b8d09d2471b20fe517bea35c6efc0bd047ddeb/VIB-NOTICE.md) — licensing precedent.

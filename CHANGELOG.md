@@ -1,6 +1,13 @@
 # Changelog
 
-## v0.0.0.2 — proposed architecture revision
+## v0.0.0.3 — reference standard and operating contract (candidate)
+- Add BNAI's own read-only-by-default agent operating contract and five-step review loop, with explicit deactivation.
+- Document five layers, all sixteen Layer-1 compositions, all ten pairwise interfaces and a branch installation recipe.
+- Separate execution profiles from architecture; add no-runner options and privacy boundaries.
+- Add exact VIB PolyForm Strict license, BNAI-specific notice, contribution and security guidance.
+- Preserve observed example pins; extend structural checks without introducing a runtime.
+
+## v0.0.0.2 — architecture revision (merged)
 - Separate permanent branch substrate from the agent operating contract.
 - Classify eight distinct foundational artifact responsibilities, with actual VIB and README HQ examples.
 - Retain skills/plugin, CLI and MCP as independent enhancements.

@@ -1,6 +1,6 @@
 # Agent operating contract
 
-The second BNAI layer is the proposed repository-resident agent operating contract. It identifies what the agent must understand before operating the first layer. It is not an authorization credential or an instruction hierarchy that overrides the host.
+The second BNAI layer is the optional dedicated repository-resident agent operating contract. Minimal identity, authority and recovery responsibilities still apply to Layer 1. It identifies what the agent must understand before operating the first layer. It is not an authorization credential or an instruction hierarchy that overrides the host.
 
 ## Distinct artifact responsibilities
 
@@ -22,6 +22,10 @@ A small installation may combine responsibilities; a complex installation may sp
 At VIB revision [77b8d09d2471b20fe517bea35c6efc0bd047ddeb](https://github.com/vixttha/Version-Issues-Hub/tree/77b8d09d2471b20fe517bea35c6efc0bd047ddeb), the repository tree contains AGENTS.md, README.md, STANDARD.md, WORKFLOW.md, LIFECYCLE.md, GATE.md, vib-install.json and the ledger files. AGENTS.md was read at that revision; the other paths are tree observations, not a substantive audit of each file.
 
 At README HQ revision [b1bbc9a72a5193afcaeaf823f097753070bfa43f](https://github.com/vixttha/README-HQ/tree/b1bbc9a72a5193afcaeaf823f097753070bfa43f), AGENTS.md, README.md, ENGINEERING-LAWS.md, README-GUIDE.md and executable workflow files are present. AGENTS.md was read at that revision. At BART revision [e0e887a5e991a7a6ed7597e4a36dd47a49cd8ccb](https://github.com/vixttha/Blender-Agent-Refinement-Toolkit/tree/e0e887a5e991a7a6ed7597e4a36dd47a49cd8ccb), AGENTS.md, README.md, four SKILL.md files and CI workflows are present.
+
+## BNAI's own reference contract
+
+The reference uses [AGENTS.md](../AGENTS.md), [STANDARD.md](../STANDARD.md), [WORKFLOW.md](../WORKFLOW.md), [GATE.md](../GATE.md) and [LIFECYCLE.md](../LIFECYCLE.md) to support voluntary BNAI Mode. These instructions do not constitute an installed BNAI product or automatically register a host skill.
 
 ## Boundaries
 - WORKFLOW.md describes an operating process; GitHub Actions YAML and code execute mechanical steps.

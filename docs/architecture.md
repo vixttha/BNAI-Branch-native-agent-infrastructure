@@ -3,12 +3,12 @@
 | Layer | Responsibility | Requirement |
 |---|---|---|
 | 1. Persistent branch substrate | Installation, shared mechanical core, versioned state, tests and evidence | Foundational |
-| 2. Agent operating contract | Discoverable identity, orientation, authority, procedures, lifecycle, gates and state bindings | Foundational responsibilities; see [contract](agent-contract.md) |
+| 2. Agent operating contract | Discoverable identity, orientation, authority, procedures, lifecycle, gates and state bindings | Optional dedicated contract; minimum identity and authority responsibilities still apply; see [contract](agent-contract.md) |
 | 3. Skills and plugin packaging | Portable task-specific instructions and host-specific distribution | Optional; native skills can be used without a plugin |
 | 4. LLM-first CLI | Discoverable mechanical operations and structured results | Recommended interface; alternatives can qualify |
 | 5. MCP | Typed tools, resources and optional prompts for compatible hosts | Optional connectivity; not a trust grant |
 
-Layers 1 and 2 constitute the branch-native baseline. Layers 3–5 add independently usable interfaces; they are not sequential dependencies or guaranteed maturity levels. Files are implementation artifacts of distinct responsibilities, not each a mandatory architecture layer. Execution (CI, cloud, local) is cross-cutting, as are persistence, evidence and security.
+Layer 1 is the required architectural substrate. Layers 2–5 are independent optional enhancements, not sequential dependencies or guaranteed maturity levels. An installation still needs sufficient recoverable identity, authority, procedures and state; these may be minimal metadata, a skill, a CLI help contract or another suitable form rather than a separate Layer 2 suite. See [composition](composition.md) for all combinations. Files are implementation artifacts of distinct responsibilities, not each a mandatory architecture layer. Execution (CI, cloud, local) is cross-cutting, as are persistence, evidence and security.
 
 CLI and MCP should call a common validated core where practical, rather than duplicating rules. Skills teach safe usage; they do not grant permissions. No universal invocation syntax is assumed. Host-specific packaging must be tested.
 
@@ -37,7 +37,7 @@ Resolve authorized repository and installation branch; pin source and state revi
 
 ## Execution profiles
 
-Public: standard GitHub-hosted runners for public fixtures and permitted public tasks. Private: isolated authorized compute within account allowances and cost ceilings; never publish private data or secrets to obtain free compute. Local: optional execution on compatible hardware. GitHub Actions jobs are ephemeral, not permanent MCP hosting. A remote MCP server needs separately qualified hosting, authentication and isolation. No mandatory model API or hosting subscription.
+See [execution profiles](execution.md). Execution is cross-cutting, not a sixth layer. Standard public hosted runners are the primary reference profile, but no-runner and other authorized environments are supported in principle.
 
 ## LLM-first CLI direction
 Use machine-readable discovery and stable structured success/error schemas, meaningful exit codes, bounded noninteractive execution, explicit targets, no implicit overwrite, dry-run where meaningful, revision checks, and exact evidence. See [BART issue #117](https://github.com/vixttha/Blender-Agent-Refinement-Toolkit/issues/117) for a concrete proposed engineering contract. These are guidance, not commands already implemented in all products.

@@ -7,9 +7,9 @@ import unittest
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 class FoundationTests(unittest.TestCase):
     def test_version(self):
-        self.assertEqual((ROOT / "VERSION").read_text().strip(), "v0.0.0.2")
+        self.assertEqual((ROOT / "VERSION").read_text().strip(), "v0.0.0.3")
         for path in ("README.md", "CHANGELOG.md"):
-            self.assertIn("v0.0.0.2", (ROOT / path).read_text())
+            self.assertIn("v0.0.0.3", (ROOT / path).read_text())
     def test_catalog(self):
         data = json.loads((ROOT / "examples/catalog.json").read_text())
         self.assertEqual(data["schema_version"], 1)
@@ -32,6 +32,23 @@ class FoundationTests(unittest.TestCase):
         contract = (ROOT / "docs/agent-contract.md").read_text()
         for name in ("README.md", "AGENTS.md", "WORKFLOW.md", "LIFECYCLE.md", "GATE.md", "STANDARD.md", "vib-install.json", "ledger/handoff.json"):
             self.assertIn(name, contract)
+    def test_reference_contract(self):
+        for p in ("AGENTS.md", "STANDARD.md", "WORKFLOW.md", "GATE.md", "LIFECYCLE.md", "LICENSE", "NOTICE.md", "CONTRIBUTING.md", "SECURITY.md"):
+            self.assertTrue((ROOT / p).is_file(), p)
+        self.assertIn("PolyForm Strict License 1.0.0", (ROOT / "LICENSE").read_text())
+        self.assertIn("Head → Worker → Validate → Internal Auditor → Head", (ROOT / "WORKFLOW.md").read_text())
+        self.assertIn("turn BNAI off", (ROOT / "AGENTS.md").read_text())
+        self.assertIn("read-only", (ROOT / "AGENTS.md").read_text())
+        self.assertEqual(len(list((ROOT / "docs/layers").glob("*.md"))), 5)
+    def test_composition(self):
+        doc = (ROOT / "docs/composition.md").read_text()
+        combos = re.findall(r"^\| (1(?: \+ [2-5])*) \|", doc, re.M)
+        expected = {" + ".join(map(str, [1] + [i for i in range(2, 6) if m & (1 << (i-2))])) for m in range(16)}
+        self.assertEqual(len(combos), 16)
+        self.assertEqual(set(combos), expected)
+        pairs = re.findall(r"^\| ([1-5]) ↔ ([1-5]) \|", doc, re.M)
+        self.assertEqual(len(pairs), 10)
+        self.assertEqual(set(pairs), {(str(a), str(b)) for a in range(1, 6) for b in range(a+1, 6)})
     def test_local_links(self):
         for path in ROOT.rglob("*.md"):
             for target in re.findall(r"\]\(([^)]+)\)", path.read_text()):
