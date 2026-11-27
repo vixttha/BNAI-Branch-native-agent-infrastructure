@@ -1,11 +1,14 @@
-# Four-layer reference architecture
+# Five-layer reference architecture
 
 | Layer | Responsibility | Requirement |
 |---|---|---|
-| 1. Permanent branch | Identity, versioned implementation, adopter state, tests and evidence | Foundation; must operate without requiring the optional layers |
-| 2. Skills and plugin packaging | Portable instructions and host-specific distribution | Optional enhancement; native skills can be used without a plugin |
-| 3. LLM-first CLI | Discoverable mechanical operations and structured results | Recommended interface; alternatives can qualify |
-| 4. MCP | Typed tools, resources and optional prompts for compatible hosts | Optional connectivity; not a trust grant |
+| 1. Persistent branch substrate | Installation, shared mechanical core, versioned state, tests and evidence | Foundational |
+| 2. Agent operating contract | Discoverable identity, orientation, authority, procedures, lifecycle, gates and state bindings | Foundational responsibilities; see [contract](agent-contract.md) |
+| 3. Skills and plugin packaging | Portable task-specific instructions and host-specific distribution | Optional; native skills can be used without a plugin |
+| 4. LLM-first CLI | Discoverable mechanical operations and structured results | Recommended interface; alternatives can qualify |
+| 5. MCP | Typed tools, resources and optional prompts for compatible hosts | Optional connectivity; not a trust grant |
+
+Layers 1 and 2 constitute the branch-native baseline. Layers 3–5 add independently usable interfaces; they are not sequential dependencies or guaranteed maturity levels. Files are implementation artifacts of distinct responsibilities, not each a mandatory architecture layer. Execution (CI, cloud, local) is cross-cutting, as are persistence, evidence and security.
 
 CLI and MCP should call a common validated core where practical, rather than duplicating rules. Skills teach safe usage; they do not grant permissions. No universal invocation syntax is assumed. Host-specific packaging must be tested.
 
@@ -13,6 +16,10 @@ CLI and MCP should call a common validated core where practical, rather than dup
 flowchart TD
   H[LLM and compatible harness] --> S[Skills and optional plugin]
   H --> M[Optional MCP adapter]
+  H --> A[Agent operating contract]
+  S --> A
+  M -. retrieves context .-> A
+  A --> B
   S --> C[CLI or authorized API]
   M --> K[Shared validated product core]
   C --> K
@@ -21,6 +28,9 @@ flowchart TD
   E --> R[Revision-bound evidence]
   R --> B
 ```
+
+## Runtime activation stages (distinct from architecture layers)
+Discover installation → bind identity and revision → resolve authority and current state → select permitted capability → execute and verify → persist receipt and reconcile. Refresh on interruptions and revision changes. These are procedural steps, not five physical software layers.
 
 ## Session synchronization
 Resolve authorized repository and installation branch; pin source and state revisions; read identity, permissions, capabilities and current handoff; validate operation scope; execute; verify and reconcile evidence. Refresh after interruptions or changed revisions. Treat branch content as untrusted input until provenance and authority are checked. No instruction overrides host or owner security policies.

@@ -1,6 +1,6 @@
 # Branch-native agent infrastructure (BNAI)
 
-**v0.0.0.1 — foundational definition (draft candidate)**
+**v0.0.0.2 — five-layer architecture revision (draft candidate)**
 
 Branch-native agent infrastructure is an architectural category in which reusable agent-oriented engineering capabilities are installed in persistent version-controlled branches, supplying AI agents with project-specific instructions, mechanical operations, durable state and verifiable execution.
 
@@ -11,7 +11,8 @@ BNAI is a descriptive term proposed by this repository, not a claim of invention
 ## Start here
 
 - [Definition and boundaries](docs/definition.md)
-- [Four-layer reference architecture](docs/architecture.md)
+- [Five-layer reference architecture](docs/architecture.md)
+- [Agent operating contract](docs/agent-contract.md)
 - [Principles and qualification](docs/principles.md)
 - [Evidence-based example catalog](examples/README.md)
 - [Primary sources](docs/sources.md)
