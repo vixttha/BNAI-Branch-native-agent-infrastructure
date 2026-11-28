@@ -3,6 +3,7 @@ import json
 import pathlib
 import re
 import unittest
+import tempfile
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 def validate_journeys(doc):
@@ -29,6 +30,25 @@ def validate_journeys(doc):
             raise ValueError("invalid local source")
     if covered != modes:
         raise ValueError("missing evidence mode")
+
+def validate_trial_evidence(base, row, reference_receipts):
+    """Check evidence shape, not authenticity or actual agent execution."""
+    observed = row.get("observed")
+    if not isinstance(observed, str) or not observed.strip():
+        raise ValueError("missing observed outcome")
+    paths = []
+    for key in ("transcript", "activity_trace"):
+        value = row.get(key)
+        if not isinstance(value, str) or not value.strip() or pathlib.Path(value).is_absolute():
+            raise ValueError("invalid evidence path: " + key)
+        path = (base / value).resolve()
+        if (not path.is_relative_to(base.resolve()) or not path.is_file()
+                or path in reference_receipts or not path.read_bytes().strip()):
+            raise ValueError("missing, empty or non-agent evidence: " + key)
+        paths.append(path)
+    if paths[0] == paths[1]:
+        raise ValueError("transcript and activity trace must be distinct artifacts")
+
 
 class FoundationTests(unittest.TestCase):
     def test_version(self):
@@ -126,6 +146,63 @@ class FoundationTests(unittest.TestCase):
         self.assertNotIn("Version-Issues-Hub", {p.name for p in ROOT.iterdir()})
         self.assertFalse((ROOT / "ledger").exists())
         self.assertFalse((ROOT / "vib-install.json").exists())
+    def test_behavioral_trial_record(self):
+        base = ROOT / "docs/qualification/v0.0.0.3.2"
+        data = json.loads((base / "results.json").read_text())
+        fixtures = json.loads((base / "fixtures.json").read_text())
+        self.assertEqual(data["issue"], 6)
+        self.assertEqual(data["version"], "v0.0.0.3.2")
+        for key in ("reference_sha", "target_sha"):
+            self.assertRegex(data[key], r"^[0-9a-f]{40}$")
+        self.assertEqual([row["id"] for row in data["trials"]], [f"B{i:02d}" for i in range(1, 11)])
+        self.assertEqual([row["id"] for row in fixtures["cases"]], [f"S{i}" for i in range(1, 8)])
+        protocol = (base / "README.md").read_text()
+        reference_receipts = {(base / row["receipt"]).resolve() for row in data["reference_observations"]}
+        for row in data["trials"]:
+            self.assertIn(f"### {row['id']} —", protocol)
+            self.assertEqual(row["mode"], "agent")
+            self.assertIn(row["result"], {"not-run", "blocked", "pass", "fail", "not-applicable"})
+            if row["result"] in {"pass", "fail"}:
+                validate_trial_evidence(base, row, reference_receipts)
+            else:
+                self.assertTrue(row["reason"])
+        if data["behavioral_qualification"] == "pass":
+            self.assertTrue(all(row["result"] == "pass" for row in data["trials"]))
+        else:
+            self.assertIn(data["behavioral_qualification"], {"blocked", "not-run", "fail"})
+        for row in data["reference_observations"]:
+            self.assertEqual(row["mode"], "reference")
+            path = (base / row["receipt"]).resolve()
+            self.assertTrue(path.is_relative_to(base.resolve()) and path.is_file())
+    def test_behavioral_trial_evidence_reject_invalid(self):
+        # Synthetic structural test inputs only; not behavioral receipts.
+        with tempfile.TemporaryDirectory() as directory:
+            base = pathlib.Path(directory)
+            for name, content in (("transcript.txt", "synthetic transcript marker"),
+                                  ("trace.txt", "synthetic trace marker"),
+                                  ("reference.txt", "synthetic reference marker"),
+                                  ("empty.txt", "  ")):
+                (base / name).write_text(content)
+            reference_receipts = {(base / "reference.txt").resolve()}
+            row = {"observed": "synthetic outcome", "transcript": "transcript.txt",
+                   "activity_trace": "trace.txt"}
+            validate_trial_evidence(base, row, reference_receipts)
+            for override in (
+                {"observed": "  "},
+                {"observed": 1},
+                {"activity_trace": "transcript.txt"},
+                {"activity_trace": "./transcript.txt"},
+                {"activity_trace": "empty.txt"},
+                {"activity_trace": "missing.txt"},
+                {"activity_trace": "reference.txt"},
+                {"transcript": "reference.txt"},
+                {"activity_trace": "../trace.txt"},
+                {"activity_trace": str(base / "trace.txt")},
+                {"activity_trace": None},
+            ):
+                with self.subTest(override=override):
+                    with self.assertRaises(ValueError):
+                        validate_trial_evidence(base, {**row, **override}, reference_receipts)
     def test_local_links(self):
         for path in ROOT.rglob("*.md"):
             for target in re.findall(r"\]\(([^)]+)\)", path.read_text()):

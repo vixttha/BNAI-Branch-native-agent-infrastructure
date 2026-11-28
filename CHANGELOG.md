@@ -1,6 +1,12 @@
 # Changelog
 
-## v0.0.0.3.1 — qualification journeys and maintainer contract (candidate)
+## v0.0.0.3.2 — methodology and exploratory review (candidate)
+- Add a practical design methodology, distinguish development, exploratory feedback and formal qualification, and record the bounded checkpoint disposition.
+- Retain the original issue #6 trial protocol, synthetic scenarios, source observations and unexecuted blocked results as deferred formal qualification work. Add negative structural checks for invalid evidence artifacts; no behavioral qualification or integration claim.
+- Keep the owner-requested one-time external exploratory review pending; no model or harness becomes a BNAI dependency.
+- Keep VIB adoption separately blocked and record the owner-selected cooperative issue #6 lane.
+
+## v0.0.0.3.1 — qualification journeys and maintainer contract (merged)
 - Add fifteen reference qualification scenarios, explicit evidence tiers, negative cases and a structural catalog check. Version selected by the owner; integration requires review of this exact candidate.
 - Update the maintainer agent contract for future issue-version management with VIB, subject to compatibility and reviewed adoption. Record the current version-grammar blocker; no VIB installation or assignment is claimed.
 

@@ -4,7 +4,7 @@
 
 BNAI teaches humans and AI agents how to build project-bound engineering infrastructure in durable version-control branches. Preserve context across sessions, select only the capabilities needed, and verify work against exact revisions — without requiring a particular model, harness or execution provider.
 
-**Specification:** v0.0.0.3.1 candidate · [Version history](CHANGELOG.md) · [PolyForm Strict 1.0.0](LICENSE) · [Reuse terms](NOTICE.md)
+**Specification:** v0.0.0.3.2 candidate · [Version history](CHANGELOG.md) · [PolyForm Strict 1.0.0](LICENSE) · [Reuse terms](NOTICE.md)
 
 [Read the specification](docs/README.md) · [Review a project with BNAI](AGENTS.md) · [Explore source examples](examples/README.md)
 
@@ -35,7 +35,7 @@ Use Layer 1 alone, 1 + 3, 1 + 2 + 4, or any of the [16 possible compositions](do
 | Reader goal | Route |
 |---|---|
 | Understand the category | [Definition and scope](docs/definition.md) |
-| Design an installation | [Architecture](docs/architecture.md) and [layer composition](docs/composition.md) |
+| Design an installation | [Design methodology](docs/methodology.md) and [layer composition](docs/composition.md) |
 | Build or maintain a layer | [Implementation and lifecycle guides](docs/README.md) |
 | Review a project with an agent | [Agent instructions](AGENTS.md) and [review workflow](WORKFLOW.md) |
 | Check laws, evidence or examples | [Standard](STANDARD.md), [acceptance gates](GATE.md), [qualification journeys](docs/qualification-journeys.md), [examples](examples/README.md) |
@@ -68,9 +68,9 @@ BNAI is a reference specification, not an adopter installation, agent harness, r
 | [Source observations](examples/README.md) | Exact historical source revisions; not runtime qualification |
 | [Structural checks](scripts/check_foundation.py) | Intended documentation checks; consult actual runs |
 | [GitHub Actions runs](https://github.com/vixttha/BNAI-Branch-native-agent-infrastructure/actions) | Check exact candidate or main revision and outcome |
-| Agent behavior / interoperability | Not qualified by documentation CI |
+| [Development and exploratory review](docs/qualification/v0.0.0.3.2/README.md) | Reference observations retained; formal agent trials deferred and unexecuted; no interoperability claim |
 
-This is an evolving candidate, not a formal released standard. [Primary sources](docs/sources.md) · [Security](SECURITY.md) · [Contribute](CONTRIBUTING.md).
+This is an evolving candidate, not a formal released standard. Develop the methodology first; use scoped exploratory feedback to discover gaps, and reserve formal behavioral and adopter qualification for mature, explicitly selected capabilities. See [development and evidence stages](docs/methodology.md#development-and-evidence-stages). [Primary sources](docs/sources.md) · [Security](SECURITY.md) · [Contribute](CONTRIBUTING.md).
 
 ## Cite this reference
 
