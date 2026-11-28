@@ -35,7 +35,7 @@ Use Layer 1 alone, 1 + 3, 1 + 2 + 4, or any of the [16 possible compositions](do
 | Reader goal | Route |
 |---|---|
 | Understand the category | [Definition and scope](docs/definition.md) |
-| Design an installation | [Architecture](docs/architecture.md) and [layer composition](docs/composition.md) |
+| Design an installation | [Design methodology](docs/methodology.md) and [layer composition](docs/composition.md) |
 | Build or maintain a layer | [Implementation and lifecycle guides](docs/README.md) |
 | Review a project with an agent | [Agent instructions](AGENTS.md) and [review workflow](WORKFLOW.md) |
 | Check laws, evidence or examples | [Standard](STANDARD.md), [acceptance gates](GATE.md), [qualification journeys](docs/qualification-journeys.md), [examples](examples/README.md) |
@@ -68,9 +68,9 @@ BNAI is a reference specification, not an adopter installation, agent harness, r
 | [Source observations](examples/README.md) | Exact historical source revisions; not runtime qualification |
 | [Structural checks](scripts/check_foundation.py) | Intended documentation checks; consult actual runs |
 | [GitHub Actions runs](https://github.com/vixttha/BNAI-Branch-native-agent-infrastructure/actions) | Check exact candidate or main revision and outcome |
-| [Agent behavioral qualification](docs/qualification/v0.0.0.3.2/README.md) | Reference observation retained; required fresh-session trials blocked; no interoperability claim |
+| [Development and exploratory review](docs/qualification/v0.0.0.3.2/README.md) | Reference observations retained; formal agent trials deferred and unexecuted; no interoperability claim |
 
-This is an evolving candidate, not a formal released standard. [Primary sources](docs/sources.md) · [Security](SECURITY.md) · [Contribute](CONTRIBUTING.md).
+This is an evolving candidate, not a formal released standard. Develop the methodology first; use scoped exploratory feedback to discover gaps, and reserve formal behavioral and adopter qualification for mature, explicitly selected capabilities. See [development and evidence stages](docs/methodology.md#development-and-evidence-stages). [Primary sources](docs/sources.md) · [Security](SECURITY.md) · [Contribute](CONTRIBUTING.md).
 
 ## Cite this reference
 

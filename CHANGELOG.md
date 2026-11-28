@@ -1,7 +1,9 @@
 # Changelog
 
-## v0.0.0.3.2 — agent behavioral qualification (candidate; blocked)
-- Add the approved issue #6 controlled trial protocol, synthetic scenario data, reference observations and honest per-case results. Required fresh-agent trials remain blocked; no behavioral qualification or integration claim.
+## v0.0.0.3.2 — methodology and exploratory review (candidate)
+- Add a practical design methodology, distinguish development, exploratory feedback and formal qualification, and record the bounded checkpoint disposition.
+- Retain the original issue #6 trial protocol, synthetic scenarios, source observations and unexecuted blocked results as deferred formal qualification work. Add negative structural checks for invalid evidence artifacts; no behavioral qualification or integration claim.
+- Keep the owner-requested one-time external exploratory review pending; no model or harness becomes a BNAI dependency.
 - Keep VIB adoption separately blocked and record the owner-selected cooperative issue #6 lane.
 
 ## v0.0.0.3.1 — qualification journeys and maintainer contract (merged)
